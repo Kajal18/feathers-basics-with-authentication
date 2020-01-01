@@ -6,10 +6,6 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const movie = sequelizeClient.define('movie', {
-    poster: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false

@@ -6,6 +6,10 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const user = sequelizeClient.define('user', {
+    name: {
+      type: DataTypes.STRING,
+      defaultValue: false
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false
@@ -17,6 +21,14 @@ module.exports = function (app) {
     isDisabled: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
+    },
+    resetToken: {
+      type: DataTypes.STRING,
+      defaultValue: true
+    },
+    resetTokenExpiry: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
       hooks: {
