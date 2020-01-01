@@ -2,6 +2,7 @@
 const { User } = require('./user.class');
 const createModel = require('../../models/user.model');
 const hooks = require('./user.hooks');
+const userRoutes = require('./user.routes')
 
 module.exports = function (app) {
   const options = {
@@ -9,6 +10,7 @@ module.exports = function (app) {
     paginate: app.get('paginate')
   };
 
+  app.configure(userRoutes)
   // Initialize our service with any options it requires
   app.use('/user', new User(options, app));
 
